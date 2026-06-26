@@ -1,0 +1,63 @@
+<!-- templates/modals/addHousehold.html - Modal Adicionar Loja -->
+<div class="modal hidden" id="addHouseholdModal">
+  <div class="modal-content" style="max-width: 500px;">
+    <div class="modal-header">
+      <h2 class="modal-title">+ Adicionar Nova Loja</h2>
+      <button class="modal-close" onclick="closeModal('addHouseholdModal')">✕</button>
+    </div>
+    
+    <form id="addHouseholdForm" onsubmit="handleAddHousehold(event)" style="display:flex; flex-direction:column; gap:16px; padding:20px;">
+      
+      <!-- Nome da Loja -->
+      <div class="form-group">
+        <label for="hhName" style="display:block; margin-bottom:8px; font-weight:500;">Nome da Loja</label>
+        <input 
+          type="text" 
+          id="hhName" 
+          placeholder="Ex: Loja Centro, Filial Norte" 
+          required 
+          maxlength="50"
+          style="width:100%;"
+        >
+        <small id="hhNameErr" style="color:var(--danger); display:none;"></small>
+      </div>
+
+      <!-- Descrição (opcional) -->
+      <div class="form-group">
+        <label for="hhDesc" style="display:block; margin-bottom:8px; font-weight:500;">Descrição (opcional)</label>
+        <textarea 
+          id="hhDesc" 
+          placeholder="Detalhes sobre a loja..." 
+          maxlength="200"
+          rows="3"
+          style="width:100%; font-family:inherit; padding:8px; border:1px solid var(--border); border-radius:6px; background:var(--input-bg); color:var(--text);"
+        ></textarea>
+        <small style="color:var(--text-secondary); display:block; margin-top:4px;">
+          <span id="descCount">0</span>/200
+        </small>
+      </div>
+
+      <!-- Erro -->
+      <div id="addHhErr" style="display:none; padding:10px; background:rgba(220,38,38,.1); border:1px solid var(--danger); border-radius:6px; color:var(--danger); font-size:14px;"></div>
+
+      <!-- Botões -->
+      <div class="modal-actions" style="display:flex; gap:10px; margin-top:16px;">
+        <button type="button" class="btn-sec" onclick="closeModal('addHouseholdModal')" style="flex:1;">Cancelar</button>
+        <button type="submit" class="btn-p" style="flex:1;">Criar Loja</button>
+      </div>
+
+    </form>
+  </div>
+</div>
+
+<script>
+// Contar caracteres da descrição
+document.addEventListener('DOMContentLoaded', function() {
+  const descInput = document.getElementById('hhDesc');
+  if (descInput) {
+    descInput.addEventListener('input', function() {
+      document.getElementById('descCount').textContent = this.value.length;
+    });
+  }
+});
+</script>
