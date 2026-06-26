@@ -1,0 +1,244 @@
+/* ============================================
+   COMPONENTS.CSS - Buttons, Inputs, Forms
+   ============================================ */
+
+/* Buttons */
+.btn-p {
+  width: 100%;
+  background: var(--green);
+  color: #fff;
+  border: none;
+  padding: 13px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-p:hover {
+  filter: brightness(0.95);
+}
+
+.btn-p:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.btn-sec {
+  width: 100%;
+  background: var(--card);
+  color: var(--text);
+  border: 1px solid var(--border);
+  padding: 13px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-sec:hover {
+  border-color: var(--green);
+  color: var(--green);
+}
+
+.btn-back {
+  background: none;
+  border: none;
+  color: var(--text-soft);
+  font-size: 13px;
+  cursor: pointer;
+  margin-top: 8px;
+  text-decoration: underline;
+}
+
+/* Icon Buttons */
+.icon-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--text);
+  font-size: 15px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.icon-btn:hover {
+  border-color: var(--green);
+  color: var(--green);
+}
+
+/* Avatar Button */
+.av-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  background: var(--green);
+  color: #fff;
+  font-family: 'Archivo', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  cursor: pointer;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+
+/* Form Elements */
+input[type="email"],
+input[type="text"],
+input[type="number"],
+input[type="password"],
+input[type="color"],
+input[type="file"] {
+  width: 100%;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--text);
+  padding: 13px 14px;
+  border-radius: 12px;
+  transition: all 0.2s;
+}
+
+input[type="color"] {
+  height: 44px;
+  padding: 8px 14px;
+}
+
+input[type="file"] {
+  padding: 10px 14px;
+  cursor: pointer;
+}
+
+input[type="time"] {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--text);
+  padding: 8px 10px;
+  border-radius: 8px;
+  width: 90px;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 2px solid var(--green);
+  outline-offset: 1px;
+}
+
+::placeholder {
+  color: var(--text-soft);
+}
+
+select {
+  width: 100%;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--text);
+  padding: 13px 14px;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+/* Form Groups */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.form-group label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-soft);
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.form-group textarea {
+  font-family: 'Inter', sans-serif;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--text);
+  padding: 11px 14px;
+  border-radius: 10px;
+  resize: vertical;
+  min-height: 80px;
+  font-size: 14px;
+}
+
+/* Error Message */
+.err {
+  color: var(--danger);
+  font-size: 12px;
+  margin-top: 4px;
+  display: none;
+}
+
+.err.show {
+  display: block;
+}
+
+/* Badges */
+.hh-badge {
+  background: var(--green-bg);
+  color: var(--green);
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  border: none;
+  white-space: nowrap;
+  max-width: 140px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Dividers */
+.auth-divider {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin: 20px 0;
+  color: var(--text-soft);
+  font-size: 13px;
+}
+
+.auth-divider::before,
+.auth-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+.auth-divider span {
+  padding: 0 12px;
+}
+
+/* Link/Button Styles */
+.link-forgot {
+  background: none;
+  border: none;
+  color: var(--green);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 16px;
+  text-decoration: underline;
+  font-family: 'Inter', sans-serif;
+}
