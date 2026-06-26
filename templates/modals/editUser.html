@@ -1,0 +1,38 @@
+<!-- templates/modals/editUser.html - Modal Editar Membro -->
+<div class="modal hidden" id="editUserModal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2 class="modal-title">Editar Membro</h2>
+      <button class="modal-close" onclick="closeModal('editUserModal')">✕</button>
+    </div>
+    <form id="editUserForm" onsubmit="handleEditUser(event)">
+      <div class="modal-form">
+        <div class="form-group">
+          <label>Nome</label>
+          <input type="text" id="editUserName" required maxlength="50">
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" id="editUserEmail" required>
+        </div>
+        <div class="form-group">
+          <label>Grupo/Cargo</label>
+          <select id="editUserGroup" required>
+            <option value="">Selecione um grupo</option>
+            <!-- Loaded dynamically -->
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Permissões</label>
+          <div id="editUserPermissions" style="display:flex; flex-direction:column; gap:8px;">
+            <!-- Loaded dynamically -->
+          </div>
+        </div>
+      </div>
+      <div class="modal-actions">
+        <button type="submit" class="btn-p">Salvar</button>
+        <button type="button" class="btn-sec" onclick="closeModal('editUserModal')">Cancelar</button>
+      </div>
+    </form>
+  </div>
+</div>
