@@ -421,32 +421,50 @@ async function addItem() {
 
   const input = document.getElementById('itemName');
   const nome = input?.value.trim() || '';
-  
+
   if (!nome) {
     toast('Digite o nome do item', 'danger');
     return;
   }
 
+  // Ler campos extras
+  const qty = parseInt(document.getElementById('qty')?.value) || 1;
+  const unit = document.getElementById('unit')?.value || 'un';
+  const category = document.getElementById('category')?.value || '';
+
   // Validar
-  const validation = Validators.validateItemForm(nome, 1, 'Geral');
+  const validation = Validators.validateItemForm(nome, qty, category || 'Geral');
   if (!validation.valid) {
     toast(Object.values(validation.errors)[0], 'danger');
-    input.value = '';
     return;
   }
-  
+
   toast('Adicionando item...', 'loading');
-  
+
   // Chamar API
-  const result = await dataService.addItem(hhId, nome, 1, 'un', 'Geral');
-  
+  const result = await dataService.addItem(hhId, nome, qty, unit, category);
+
   if (result.success) {
     toast('Item adicionado!', 'success');
     input.value = '';
+    document.getElementById('qty').value = '1';
+    document.getElementById('category').value = '';
     await loadItems();
   } else {
     toast(result.message, 'danger');
   }
+}
+
+async function loadCategories() {
+  const select = document.getElementById('category');
+  if (!select) return;
+
+  const result = await dataService.getCategories();
+  if (!result.success) return;
+
+  const cats = result.data || [];
+  select.innerHTML = '<option value="">Categoria...</option>' +
+    cats.map(c => `<option value="${c.nome}">${c.emoji ? c.emoji + ' ' : ''}${c.nome}</option>`).join('');
 }
 
 // ========== TOGGLE ITEM CHECK ==========
