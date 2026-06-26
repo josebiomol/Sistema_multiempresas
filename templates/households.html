@@ -1,0 +1,33 @@
+<!-- templates/households.html - Seleção de Lojas -->
+<div class="hh-screen" id="householdsScreen">
+  <h2>Minhas Lojas</h2>
+  <p class="sub">Selecione uma loja para começar</p>
+  
+  <!-- Households List -->
+  <div class="hh-list" id="hhList">
+    <!-- Loaded dynamically -->
+  </div>
+
+  <!-- Add Household Button -->
+  <button class="hh-add" onclick="openAddHouseholdModal()">+ Adicionar Loja</button>
+
+  <!-- Empty State -->
+  <div class="empty" id="hhEmptyState" style="display:none;">
+    <div class="empty-icon">🏪</div>
+    <div class="empty-text">Nenhuma loja criada. Crie uma para começar!</div>
+  </div>
+</div>
+
+<!-- Template para cada household card (replicado via JS) -->
+<template id="householdCardTemplate">
+  <div class="hh-card" onclick="selectHousehold(this.dataset.hhId)">
+    <div>
+      <div class="hh-name">{{name}}</div>
+      <div class="hh-meta">{{meta}}</div>
+    </div>
+    <div class="hh-actions">
+      <button class="hh-icon" onclick="editHousehold(event)" title="Editar">✏️</button>
+      <button class="hh-icon" onclick="deleteHousehold(event)" title="Deletar">🗑️</button>
+    </div>
+  </div>
+</template>
