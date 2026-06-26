@@ -1,0 +1,76 @@
+/* ============================================
+   THEMES.CSS - Dark/Light Mode + Animations
+   ============================================ */
+
+/* Loading Progress Bar */
+.lb {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background: var(--green);
+  z-index: 100;
+  opacity: 0;
+  transition: width 0.3s, opacity 0.3s;
+}
+
+.lb.active {
+  opacity: 1;
+  animation: loadProgress 1.8s ease-in-out infinite;
+}
+
+.lb.done {
+  width: 100% !important;
+  opacity: 0;
+  transition: width 0.2s, opacity 0.4s ease 0.2s;
+  animation: none;
+}
+
+@keyframes loadProgress {
+  0% { width: 0%; }
+  30% { width: 50%; }
+  70% { width: 80%; }
+  100% { width: 90%; }
+}
+
+/* Modal Animations */
+.modal {
+  animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Theme Toggle Button */
+.themeToggleAuth {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--card);
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow);
+  transition: all 0.2s;
+  z-index: 100;
+}
+
+.themeToggleAuth:hover {
+  border-color: var(--green);
+  color: var(--green);
+}
