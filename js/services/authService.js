@@ -5,7 +5,7 @@
  */
 
 class AuthService {
-  constructor(apiUrl = 'https://script.google.com/macros/s/AKfycbwI9Z0vGVkddzLd6DOrE4DGtdw-sTcwlMfGcldJR42txmRVVrhVcXrEakPn4-Ujfr0/exec') {
+  constructor(apiUrl = 'https://script.google.com/macros/s/AKfycby0MuGGR1AusStpLklXBYvHj5Iq-hu4nL6Pvpt8vrq_sbzOPJXv0itONfeyBePSrhhL/exec') {
     this.apiUrl = apiUrl;
     this.sessionManager = null;
   }
