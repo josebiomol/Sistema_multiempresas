@@ -129,6 +129,7 @@ function showScreen(screenName) {
     loadHouseholds();
   } else if (screenName === 'app' && typeof loadItems === 'function') {
     loadItems();
+    if (typeof loadCategories === 'function') loadCategories();
   }
 }
 
