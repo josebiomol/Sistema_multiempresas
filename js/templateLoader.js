@@ -120,7 +120,8 @@ function showScreen(screenName) {
   // Mostrar tela solicitada
   const screen = document.getElementById(`${screenName}Screen`);
   if (screen) {
-    screen.style.display = 'flex';
+    // app (.main) flui em bloco; auth/households usam flex
+    screen.style.display = (screenName === 'app') ? 'block' : 'flex';
   }
 
   // Carregar dados ao abrir a tela
