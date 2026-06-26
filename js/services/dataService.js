@@ -25,12 +25,10 @@ class DataService {
 
       const response = await fetch(this.apiUrl, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${session.access_token}`
-        },
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
         body: JSON.stringify({
           action: action,
+          token: session.access_token,
           ...data
         })
       });
@@ -38,7 +36,7 @@ class DataService {
       const result = await response.json();
 
       // Se token expirou, renovar
-      if (response.status === 401) {
+      if (result.code === 401 || response.status === 401) {
         const refreshResult = await authService.refreshToken();
         if (refreshResult.success) {
           return this._fetch(action, data); // Retry
