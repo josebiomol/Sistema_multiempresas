@@ -28,7 +28,7 @@ class AuthService {
 
       const response = await fetch(this.apiUrl, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
         body: JSON.stringify({
           action: 'login',
           email: email.toLowerCase(),
@@ -85,7 +85,7 @@ class AuthService {
 
       const response = await fetch(this.apiUrl, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
         body: JSON.stringify({
           action: 'register',
           name: name.trim(),
@@ -129,7 +129,7 @@ class AuthService {
 
       const response = await fetch(this.apiUrl, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
         body: JSON.stringify({
           action: 'refreshToken',
           refreshToken: session.refresh_token
@@ -194,7 +194,7 @@ class AuthService {
 
       const response = await fetch(this.apiUrl, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
         body: JSON.stringify({
           action: 'requestPasswordReset',
           email: email.toLowerCase()
@@ -227,7 +227,7 @@ class AuthService {
     try {
       const response = await fetch(this.apiUrl, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
         body: JSON.stringify({
           action: 'verifyToken',
           token: token
