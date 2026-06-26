@@ -169,12 +169,14 @@ class DataService {
         throw new Error('Nome do item é obrigatório');
       }
 
+      const user = window.sessionManager?.getUser();
       const result = await this._fetch('addItem', {
         hhId: hhId,
         nome: nome.trim(),
         qty: qty || 1,
         unit: unit || 'un',
-        category: category || 'Geral'
+        category: category || '',
+        user_id: user?.userId || ''
       });
 
       return {
