@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistema Multiempresas</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Archivo:wght@700;800&display=swap" rel="stylesheet">
+  
+  <!-- CSS Files -->
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/themes.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+  <!-- Main App Container -->
+  <div class="app">
+    <!-- Progress Bar -->
+    <div class="lb" id="loadBar"></div>
+    
+    <!-- Topbar (Global) -->
+    <div class="topbar" id="topbar">
+      <div class="topbar-left">
+        <h1 class="app-title" id="appTitle">Sistema Multiempresas</h1>
+        <span class="hh-badge" id="householdBadge" style="display:none;"></span>
+      </div>
+      <div class="topbar-actions">
+        <button class="icon-btn" id="themeBtn" onclick="toggleTheme()" title="Alternar Tema">🌙</button>
+        <button class="av-btn" id="avBtn" onclick="toggleAccountMenu()" title="Menu">?</button>
+        <div class="acc-menu" id="accMenu" style="display:none;">
+          <p class="acc-name" id="accName">User</p>
+          <p class="acc-role" id="accRole">MEMBER</p>
+          <button class="acc-btn" onclick="openModal('settingsModal')">Configurações</button>
+          <button class="acc-logout" onclick="logout()">Logout</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Template Container (carregado dinamicamente) -->
+    <div id="root">
+      <!-- Templates serão injetados aqui -->
+    </div>
+  </div>
+
+  <!-- FAB Button (Floating Action Button) -->
+  <button class="fab" id="fab" onclick="openModal('settingsModal')" style="display:none;" title="Configurações">⚙️</button>
+
+  <!-- Toast Notification -->
+  <div id="toast"></div>
+
+  <!-- Scripts em ordem -->
+  <script src="js/middleware/authMiddleware.js"></script>
+  <script src="js/middleware/permissionMiddleware.js"></script>
+  <script src="js/middleware/rateLimiter.js"></script>
+  <script src="js/security/encryption.js"></script>
+  <script src="js/security/permissions.js"></script>
+  <script src="js/security/sessionManager.js"></script>
+  <script src="js/templateLoader.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
