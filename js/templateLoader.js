@@ -102,7 +102,8 @@ async function loadAppTemplates() {
     { template: 'app', target: '#root' },
     { template: 'modals/editItem', target: 'body' },
     { template: 'modals/editUser', target: 'body' },
-    { template: 'modals/settings', target: 'body' }
+    { template: 'modals/settings', target: 'body' },
+    { template: 'modals/addHousehold', target: 'body' }
   ]);
   // ✅ NÃO chama showScreen() - deixa main.js controlar
 }
