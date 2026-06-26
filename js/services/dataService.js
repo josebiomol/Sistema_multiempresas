@@ -19,7 +19,7 @@ class DataService {
   async _fetch(action, data = {}) {
     try {
       const session = window.sessionManager?.getSession();
-      if (!session?.access_token) {
+      if (!session?.accessToken) {
         throw new Error('Sessão expirada. Faça login novamente.');
       }
 
@@ -28,7 +28,7 @@ class DataService {
         headers: { 'Content-Type': 'text/plain;charset=utf-8' },
         body: JSON.stringify({
           action: action,
-          token: session.access_token,
+          token: session.accessToken,
           ...data
         })
       });
