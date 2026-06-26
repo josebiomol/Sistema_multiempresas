@@ -9,7 +9,8 @@ class DataService {
     this.apiUrl = apiUrl;
     this.cache = {
       households: null,
-      items: null
+      items: null,
+      categories: null
     };
   }
 
@@ -146,6 +147,27 @@ class DataService {
   /**
    * ITEMS (ITENS)
    */
+
+  async getCategories() {
+    try {
+      // Cache: categorias mudam pouco
+      if (this.cache.categories) {
+        return { success: true, data: this.cache.categories };
+      }
+      const result = await this._fetch('getCategories', {});
+      this.cache.categories = result.data || [];
+      return {
+        success: true,
+        data: this.cache.categories
+      };
+    } catch (error) {
+      return {
+        success: false,
+        message: error.message,
+        data: []
+      };
+    }
+  }
 
   async getItems(hhId) {
     try {
